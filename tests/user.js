@@ -31,7 +31,6 @@ describe('User APIs', () => {
                 lastName: newUser.lastName
             };
             userId = newUser._id;
-            console.log(userId);
             token += jwt.sign(payload, process.env.JWT_KEY);
             done();
         });
