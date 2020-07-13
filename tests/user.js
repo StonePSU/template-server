@@ -188,12 +188,12 @@ describe('User APIs', () => {
         it("it should not allow the request without a valid token", done => {
             let payload = {
                 originalPassword: "abc4567",
-                password: "Welcome123"
+                password: "welcome123"
             }
 
             chai
                 .request(server)
-                .put(`/api/users/${userId}`)
+                .post(`/api/users/${userId}/changePassword`)
                 .send(payload)
                 .end((err, res) => {
                     res.should.have.status(401);
@@ -209,7 +209,7 @@ describe('User APIs', () => {
 
             chai
                 .request(server)
-                .put(`/api/users/${userId}`)
+                .post(`/api/users/${userId}/changePassword`)
                 .set("authorization", token)
                 .send(payload)
                 .end((err, res) => {
@@ -227,7 +227,7 @@ describe('User APIs', () => {
 
             chai
                 .request(server)
-                .put(`/api/users/${userId}`)
+                .post(`/api/users/${userId}/changePassword`)
                 .set("authorization", token)
                 .send(payload)
                 .end((err, res) => {
@@ -249,7 +249,7 @@ describe('User APIs', () => {
 
             chai
                 .request(server)
-                .put(`/api/users/${userId}`)
+                .post(`/api/users/${userId}/changePassword`)
                 .set("authorization", token)
                 .send(payload)
                 .end((err, res) => {
@@ -266,7 +266,7 @@ describe('User APIs', () => {
 
             chai
                 .request(server)
-                .put(`/api/users/${userId}`)
+                .post(`/api/users/${userId}/changePassword`)
                 .set("authorization", token)
                 .send(payload)
                 .end((err, res) => {
