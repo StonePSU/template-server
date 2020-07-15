@@ -53,9 +53,15 @@ const userHandler = {
                 return next(err);
             }
             // const keys = Object.keys(body);
-
             for (let key in body) {
-                user[key] = body[key];
+                if (typeof (body[key]) === 'object' && !Array.isArray(body[key])) {
+                    let childKeys = Object.keys(body[key]);
+                    for (let child of childKeys) {
+                        user[key][child] = body[key][child];
+                    }
+                } else {
+                    user[key] = body[key];
+                }
             }
 
             let saved = await user.save();

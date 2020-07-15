@@ -26,6 +26,18 @@ const UserSchema = new Schema({
     },
     profileImageURL: {
         type: String
+    },
+    theme: {
+        color: {
+            type: String,
+            required: true,
+            default: 'blue'
+        },
+        lightDark: {
+            type: String,
+            required: true,
+            default: 'light'
+        }
     }
 }, {
     timestamps: true
