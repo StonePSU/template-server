@@ -28,7 +28,12 @@ const UserSchema = new Schema({
         type: String
     },
     theme: {
-        color: {
+        primaryColor: {
+            type: String,
+            required: true,
+            default: 'blue'
+        },
+        secondaryColor: {
             type: String,
             required: true,
             default: 'blue'
